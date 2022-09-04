@@ -18,6 +18,7 @@ jobs:
           cd ~/cron-vcb-momo/
           git restore .
           git pull https://github.com/hophamlam/cron-vcb-momo.git
+          docker-compose down
           docker-compose build
           docker-compose up -d
           echo "hi!"
