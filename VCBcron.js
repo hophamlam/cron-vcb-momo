@@ -71,7 +71,7 @@ const checkVCB = () => {
       console.log('Không có giao dịch')
     }
     else {
-      console.log(response.data.results)
+      console.log(JSON.stringify(response.data.results))
     }
   })
   

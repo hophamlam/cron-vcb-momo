@@ -6,7 +6,7 @@ const discordUrl = process.env.DISCORD_URL
 // const momoUrl = "https://momo.hophamlam.com/session.php"
 // var currentTime = new Intl.DateTimeFormat('vi-VN', { dateStyle: 'full', timeStyle: 'long' }).format(new Date())
 // console.log(currentTime)
-console.log(momoUrl)
+// console.log(momoUrl)
 
 var messageDiscord = "MOMO lỗi"
 
