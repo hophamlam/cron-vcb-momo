@@ -7,17 +7,17 @@ console.log(new Date().toString())
 VCBcron()
 MOMOcron()
 
-// cron.schedule('*/4 6-18 * * *', () => {
-//     //Run every 4 minutes, between 06:00 AM and 07:59 PM
-//     VCBcron();
-//     console.log(new Date().toString())
-// })
-
-cron.schedule('*/4 * * * *', () => {
+cron.schedule('*/4 6-18 * * *', () => {
     //Run every 4 minutes, between 06:00 AM and 07:59 PM
     VCBcron();
     console.log(new Date().toString())
 })
+
+// cron.schedule('*/4 * * * *', () => {
+//     //Run every 4 minutes, all day
+//     VCBcron();
+//     console.log(new Date().toString())
+// })
 
 cron.schedule('*/30 * * * *', () => {
     //Cron session every 30 minutes
