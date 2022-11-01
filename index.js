@@ -17,7 +17,7 @@ SendDiscord("Khởi chạy cron", 0, "");
 cron.schedule("*/4 6-18 * * *", () => {
   //Run every 4 minutes, between 06:00 AM and 07:59 PM
   VCBcron();
-  console.log(new Date().toString());
+  console.log(currentTime);
 });
 
 // cron.schedule('*/4 * * * *', () => {
@@ -29,5 +29,5 @@ cron.schedule("*/4 6-18 * * *", () => {
 cron.schedule("*/30 * * * *", () => {
   //Cron session every 30 minutes
   MOMOcron();
-  console.log(new Date().toString());
+  console.log(currentTime);
 });
