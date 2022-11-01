@@ -22,9 +22,12 @@ function MOMOcron() {
 
     axios(config)
       .then(function (response) {
-        console.log(JSON.stringify(response.data));
         if (response.data.message === "Thành công") {
-          console.log(currentTime + ": Cron momo session thành công");
+          console.log(
+            currentTime +
+              ": Cron momo session thành công" +
+              JSON.stringify(response.data)
+          );
         } else {
           SendDiscord(
             "MOMO lỗi",

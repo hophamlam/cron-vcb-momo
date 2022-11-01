@@ -42,7 +42,7 @@ function VCBcron() {
     axios(config)
       .then(function (response) {
         // console.log(JSON.stringify(response.data));
-        console.log(currentTime + ": Lấy giao dịch VCB thành công: " + "\n");
+        console.log(currentTime + ": Lấy giao dịch VCB thành công: ");
         if (response.data.results.length === 0) {
           console.log("Không có giao dịch");
         } else {
