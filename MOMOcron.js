@@ -26,7 +26,11 @@ function MOMOcron() {
         if (response.data.message === "Thành công") {
           console.log(currentTime + ": Cron momo session thành công");
         } else {
-          sendMessageDiscordMOMO(JSON.stringify(response.data.message));
+          SendDiscord(
+            "MOMO lỗi",
+            "15080644",
+            JSON.stringify(response.data.message)
+          );
           console.log(JSON.stringify(response.data.message));
         }
       })
