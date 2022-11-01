@@ -4,7 +4,6 @@ function MOMOcron() {
   // load .env
   require("dotenv").config();
   const momoUrl = process.env.MOMO_URL;
-  const discordUrl = process.env.DISCORD_URL;
 
   // dayjs library
   const dayjs = require("dayjs");
@@ -25,7 +24,7 @@ function MOMOcron() {
       .then(function (response) {
         console.log(JSON.stringify(response.data));
         if (response.data.message === "Thành công") {
-          console.log("Cron momo session thành công");
+          console.log(currentTime + ": Cron momo session thành công");
         } else {
           sendMessageDiscordMOMO(JSON.stringify(response.data.message));
           console.log(JSON.stringify(response.data.message));
@@ -36,7 +35,7 @@ function MOMOcron() {
         SendDiscord(
           "MOMO lỗi",
           "15080644",
-          JSON.stringify(error) + "\n" + currentTime
+          currentTime + "\n" + JSON.stringify(error)
         );
         console.log(JSON.stringify(error));
       });

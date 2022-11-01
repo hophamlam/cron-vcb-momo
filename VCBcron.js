@@ -1,6 +1,6 @@
 const SendDiscord = require("./SendDiscord");
 
-async function VCBcron() {
+function VCBcron() {
   // load .env
   require("dotenv").config();
   var username = process.env.VCB_LOGIN_USERNAME;
@@ -42,7 +42,7 @@ async function VCBcron() {
     axios(config)
       .then(function (response) {
         // console.log(JSON.stringify(response.data));
-        console.log("Lấy giao dịch VCB thành công");
+        console.log(currentTime + ": Lấy giao dịch VCB thành công: " + "\n");
         if (response.data.results.length === 0) {
           console.log("Không có giao dịch");
         } else {
@@ -54,7 +54,7 @@ async function VCBcron() {
         SendDiscord(
           "Vietcombank lỗi",
           "3901184",
-          JSON.stringify(error) + "\n" + currentTime
+          currentTime + "\n" + JSON.stringify(error)
         );
         console.log(JSON.stringify(error));
       });
