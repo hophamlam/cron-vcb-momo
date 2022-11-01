@@ -1,3 +1,5 @@
+const SendDiscord = require("./SendDiscord");
+
 function MOMOcron() {
   // load .env
   require("dotenv").config();
@@ -10,38 +12,6 @@ function MOMOcron() {
   dayjs.locale("vi");
 
   var currentTime = dayjs().format("HH:mm:ss | dddd, DD/MM/YYYY");
-
-  const sendMessageDiscordMOMO = (messageDiscord) => {
-    const axios = require("axios");
-    let data = JSON.stringify({
-      embeds: [
-        {
-          title: "MOMO lỗi",
-          color: "16711884",
-          description: messageDiscord + "\n" + currentTime,
-        },
-      ],
-    });
-
-    let config = {
-      method: "post",
-      url: discordUrl,
-      headers: {
-        "Content-Type": "application/json",
-        Cookie:
-          "__cfruid=8665f2afd4aa6968b81f464ae2d4bdbfd4152cc0-1667221583; __dcfduid=0f7577621c7811edbf7cdeffafb5e155; __sdcfduid=0f7577621c7811edbf7cdeffafb5e155fa163fdf4b26c835f5b8fa76777cef0c6ea7b05755fff7e0a324e03446dc7f86",
-      },
-      data: data,
-    };
-
-    axios(config)
-      .then((response) => {
-        console.log(JSON.stringify(response.data));
-      })
-      .catch((error) => {
-        console.log(JSON.stringify(error));
-      });
-  };
 
   const getSessionMomo = () => {
     var axios = require("axios");
@@ -63,12 +33,15 @@ function MOMOcron() {
       })
 
       .catch(function (error) {
-        sendMessageDiscordMOMO(JSON.stringify(error));
+        SendDiscord(
+          "MOMO lỗi",
+          "15080644",
+          JSON.stringify(error) + "\n" + currentTime
+        );
         console.log(JSON.stringify(error));
       });
   };
 
-  sendMessageDiscordMOMO("Khởi chạy MOMOcron ");
   getSessionMomo();
 }
 
