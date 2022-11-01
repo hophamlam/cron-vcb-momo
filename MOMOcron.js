@@ -25,7 +25,7 @@ function MOMOcron() {
         if (response.data.message === "Thành công") {
           console.log(
             currentTime +
-              ": Cron momo session thành công" +
+              ": Cron momo session thành công - " +
               JSON.stringify(response.data)
           );
         } else {
