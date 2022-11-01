@@ -2,7 +2,6 @@
 const dayjs = require("dayjs");
 require("dayjs/locale/vi");
 dayjs.locale("vi");
-var currentTime = dayjs().format("HH:mm:ss | dddd, DD/MM/YYYY");
 
 const cron = require("node-cron");
 const VCBcron = require("./VCBcron.js");
@@ -17,7 +16,7 @@ SendDiscord("Khởi chạy cron", 0, "");
 cron.schedule("*/4 6-18 * * *", () => {
   //Run every 4 minutes, between 06:00 AM and 07:59 PM
   VCBcron();
-  console.log(currentTime);
+  console.log(dayjs().format("HH:mm:ss | dddd, DD/MM/YYYY"));
 });
 
 // cron.schedule('*/4 * * * *', () => {
@@ -29,5 +28,5 @@ cron.schedule("*/4 6-18 * * *", () => {
 cron.schedule("*/30 * * * *", () => {
   //Cron session every 30 minutes
   MOMOcron();
-  console.log(currentTime);
+  console.log(dayjs().format("HH:mm:ss | dddd, DD/MM/YYYY"));
 });
