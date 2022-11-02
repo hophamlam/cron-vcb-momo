@@ -42,12 +42,16 @@ function VCBcron() {
     axios(config)
       .then(function (response) {
         // console.log(JSON.stringify(response.data));
-        console.log(currentTime + ": Lấy giao dịch VCB thành công: ");
-        if (response.data.results.length === 0) {
-          console.log("Không có giao dịch");
-        } else {
-          console.log(JSON.stringify(response.data.results));
-        }
+        console.log(
+          currentTime +
+            ": Lấy giao dịch VCB thành công: " +
+            JSON.stringify(response.data)
+        );
+        // if (response.data.results.length === 0) {
+        //   console.log("Không có giao dịch");
+        // } else {
+        //   console.log(JSON.stringify(response.data.results));
+        // }
       })
 
       .catch(function (error) {
