@@ -1,24 +1,23 @@
 name: remote ssh command
 on: [push]
 jobs:
-
   build:
     name: Build
     runs-on: ubuntu-latest
     steps:
-    - name: executing remote ssh commands using ssh key
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.KEY }}
-        # password: ${{ secrets.PASSWORD }}
-        port: ${{ secrets.PORT }}
-        script: |
-          cd ~/cron-vcb-momo/
-          sudo git restore .
-          sudo git pull https://github.com/hophamlam/cron-vcb-momo.git
-          sudo docker-compose down
-          sudo docker-compose build
-          sudo docker-compose up -d
-          echo "hi!"
+      - name: executing remote ssh commands using ssh key
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          # password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: |
+            cd ~/cron-vcb-momo/
+            sudo git restore .
+            sudo git pull https://github.com/hophamlam/cron-vcb-momo.git
+            sudo docker-compose down
+            sudo docker-compose build
+            sudo docker-compose up -d
+            echo "hi!"
