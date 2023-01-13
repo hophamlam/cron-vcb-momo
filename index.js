@@ -24,7 +24,7 @@ cron.schedule("*/4 6-18 * * *", () => {
 //     console.log(new Date().toString())
 // })
 
-cron.schedule("*/30 * * * *", () => {
-  //Cron session every 30 minutes
-  MOMOcron();
-});
+// cron.schedule("*/30 * * * *", () => {
+//   //Cron session every 30 minutes
+//   MOMOcron();
+// });
